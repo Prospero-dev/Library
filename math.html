@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+		body{
+		font-family: algeria;
+		/*background-image: url(img/ff.jpeg);*/
+		background-size: cover;
+		background-clip: content-box;
+		box-sizing: border-box;
+		}
+		p{
+			font-size: 0.9em;
+		}
+		h1{
+			font-size: 1.5em;
+
+		}
+	
+	table{
+		width: 700px;
+		height: 30px;
+		padding: 7px;
+		border-collapse: collapse;
+
+
+	}
+	table tr{
+		border-bottom: 1px solid black;
+	}
+	table tr:last-child{
+		border-bottom: none;
+		 color: black;
+	}
+	table th, td{
+		padding: 7px;
+	}
+	fieldset{
+		border:5px solid black;
+		 border-radius: 5px;
+		 padding: 15px;
+		 color: black;
+		 margin: 10px;
+	}
+	fieldset legend{
+		color: black;
+		font-family: algeria;
+	}
+	table input{
+		width: 200px;
+		height: 30px;
+		/*padding: 5px;*/
+		border:1px solid black;
+		border-radius: 4px;
+
+	}
+	table button{
+		height: 35px;
+		padding: 5px 15px 5px 15px;
+		width: auto;
+		background-color: black;
+		margin:3px;
+		color: white; 
+		border:1px solid black;
+		border-radius: 4px;
+	}
+
+</style>
+<body>
+
+	<center>
+	<div style="width: 350px;">
+<fieldset>
+<legend >Libary input form:</legend>
+<table style="width: 100px">
+	<tr>
+		<td>Title:</td>
+		<td><input type="text" name="" id="mv" placeholder="Enter book title "></td>
+	</tr>
+
+	<tr>
+		<td>Author:</td>
+		<td><input type="text" id="so"  placeholder="Enter book Author name" name=""></td>
+	</tr>
+
+	<tr>
+		<td>Pages:</td>
+		<td><input type="text" id="can" placeholder="Select a page" name=""></td>
+	</tr>	
+	
+	<tr>
+			<td>
+		<td><button onclick="display()" id="get">Add to object</button><button onclick="showlist()" id="kk">Display</button>
+			</td>
+	</tr>	
+	
+</table>
+</fieldset></center></div></center>
+<marquee>  	<h1 style="color: blue;">SQI LIBARY</h1>
+<h3 style="color: blue">MAKING AFRICA A TECH CONTINENT!.... ONE MIND AT A TIME</h3></marquee>
+
+<center><table id="cen" border="2" >
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Pages</th>
+			<th>Author</th>
+		</tr>
+	</thead>
+</table></center></div></a>
+
+</body>
+
+<script type="text/javascript">
+	function display(){
+	    var lib=JSON.parse(localStorage.books);
+		var obj= {Tittle:mv.value, Pages:so.value, Author:can.value};
+		lib.push(obj); 
+		localStorage.books=JSON.stringify(lib);
+		var telib=JSON.parse(localStorage.books);
+		console.log(telib);
+		mv.value=""
+		so.value=""
+		can.value=""	
+	}
+	function showlist(){
+	
+		var hi=JSON.parse(localStorage.books);
+		for (var i = 0; i < hi.length; i++) {
+			var is;
+			is='<td>' +hi[i]. Tittle+ '</td>' + '<td>' +hi[i].Pages+'</td>' + '<td>' +hi[i].Author +'</td>';
+		     cen.innerHTML+=is;
+		}
+	}
+</script>
+</html>
